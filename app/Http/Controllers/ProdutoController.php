@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Produto;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
@@ -12,12 +13,8 @@ class ProdutoController extends Controller
      */
     public function index()
     {
-
-        $produtos = Produto::paginate(6);
-
-        return view('site.home',
-            compact('produtos')
-        );
+        $produtos  = Produto::paginate(5);
+        return view('admin.produtos', compact('produtos'));
     }
 
     /**
